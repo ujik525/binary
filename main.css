@@ -1,0 +1,25 @@
+h2 {
+    background-color: #454448;
+    color: white;
+}
+
+.grade {
+    display: grid;
+    width: 300px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#button {
+    background-color: orange;
+    color: white;
+    border: none;
+    height: 21px;
+}
+
+#sum, #result {
+    background-color: #828284;
+    color: white;
+    border: none;
+    width: 70%;
+    height: 19px;
+}
