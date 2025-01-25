@@ -1,69 +1,55 @@
 <!DOCTYPE html>
-<html lang="ko">
 <head>
-  <title>내신 등급 계산기 : 바이너리</title>
-  <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/759456414519001118/793354720487931984/24x24_logo.ico">
-  <link href="main.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <title>내신 산출 계산기 - 바이너리</title>
+  <link rel="stylesheet" href="main.css">
   <script src="index.js"></script>
+  <link rel="icon" href="favicon.ico">
 </head>
-
 <body>
-  <img src="https://cdn.discordapp.com/attachments/759456414519001118/793461170538414100/web.png" alt="바이너리 로고" style="width:220px;height:42px;">
-  <!-- 내신 등급 계산기 -->
-  <h2>내신 등급 계산기 : 바이너리</h2>
-  <input id="button" type="button" value="+등급 계산 하기" readonly/>
-  <input id="result" type="text" value="결과" readonly/>
-    <div class="grade" id="Calculator">
-      <!-- 과목1 -->
-      <input id="subject-1" type="text" placeholder="과목명"/>
-      <input id="x-1" type="text" placeholder="석차"/>
-      <input id="y-1" type="text" placeholder="이수자"/>
-      <input id="z-1" type="text" placeholder="단위"/>
-      <!-- 과목2 -->
-      <input id="subject-2" type="text" placeholder="과목명"/>
-      <input id="x-2" type="text" placeholder="석차"/>
-      <input id="y-2" type="text" placeholder="이수자"/>
-      <input id="z-2" type="text" placeholder="단위"/>
-      <!-- 과목3 -->
-      <input id="subject-3" type="text" placeholder="과목명"/>
-      <input id="x-3" type="text" placeholder="석차"/>
-      <input id="y-3" type="text" placeholder="이수자"/>
-      <input id="z-3" type="text" placeholder="단위"/>
-      <!-- 과목4 -->
-      <input id="subject-4" type="text" placeholder="과목명"/>
-      <input id="x-4" type="text" placeholder="석차"/>
-      <input id="y-4" type="text" placeholder="이수자"/>
-      <input id="z-4" type="text" placeholder="단위"/>
-      <!-- 과목5 -->
-      <input id="subject-5" type="text" placeholder="과목명"/>
-      <input id="x-5" type="text" placeholder="석차"/>
-      <input id="y-5" type="text" placeholder="이수자"/>
-      <input id="z-5" type="text" placeholder="단위"/>
-      <!-- 과목6 -->
-      <input id="subject-6" type="text" placeholder="과목명"/>
-      <input id="x-6" type="text" placeholder="석차"/>
-      <input id="y-6" type="text" placeholder="이수자"/>
-      <input id="z-6" type="text" placeholder="단위"/>
-      <!-- 과목7 -->
-      <input id="subject-7" type="text" placeholder="과목명"/>
-      <input id="x-7" type="text" placeholder="석차"/>
-      <input id="y-7" type="text" placeholder="이수자"/>
-      <input id="z-7" type="text" placeholder="단위"/>
-      <!-- 과목8 -->
-      <input id="subject-8" type="text" placeholder="과목명"/>
-      <input id="x-8" type="text" placeholder="석차"/>
-      <input id="y-8" type="text" placeholder="이수자"/>
-      <input id="z-8" type="text" placeholder="단위"/>
-      <!-- 과목9 -->
-      <input id="subject-9" type="text" placeholder="과목명"/>
-      <input id="x-9" type="text" placeholder="석차"/>
-      <input id="y-9" type="text" placeholder="이수자"/>
-      <input id="z-9" type="text" placeholder="단위"/>
-      <!-- 과목10 -->
-      <input id="subject-10" type="text" placeholder="과목명"/>
-      <input id="x-10" type="text" placeholder="석차"/>
-      <input id="y-10" type="text" placeholder="이수자"/>
-      <input id="z-10" type="text" placeholder="단위"/>
+  <div id="title">
+    <h1>내신 산출 계산기 - 바이너리</h1>
+    <img src="binary_logo.svg" width="42" height="41">
+  </div>
+  <dt id="des">아래 계산기에 과목명/단위수/등급을 입력해주세요.</dt>
+
+  <div id="cal">
+    <dl>
+      <dt><p>과목명</p></dt>
+      <dt><p>단위수</p></dt>
+      <dt><p>등급</p></dt>
+    </dl>
+    <div id="sub-1" class="sub">
+      <input id="x-1" type="text">
+      <input id="y-1" type="number" min="1" max="9" oninput="digit(this)">
+      <input id="z-1" type="number" min="1" max="9" oninput="digit(this)">
     </div>
+    <div id="sub-2" class="sub">
+      <input id="x-2" type="text">
+      <input id="y-2" type="number" min="1" max="9" oninput="digit(this)">
+      <input id="z-2" type="number" min="1" max="9" oninput="digit(this)">
+    </div>
+    <div id="sub-3" class="sub">
+      <input id="x-3" type="text">
+      <input id="y-3" type="number" min="1" max="9" oninput="digit(this)">
+      <input id="z-3" type="number" min="1" max="9" oninput="digit(this)">
+    </div>
+    <div id="sub-4" class="sub">
+      <input id="x-4" type="text">
+      <input id="y-4" type="number" min="1" max="9" oninput="digit(this)">
+      <input id="z-4" type="number" min="1" max="9" oninput="digit(this)">
+    </div>
+    <div id="sub-5" class="sub">
+      <input id="x-5" type="text">
+      <input id="y-5" type="number" min="1" max="9" oninput="digit(this)">
+      <input id="z-5" type="number" min="1" max="9" oninput="digit(this)">
+    </div>
+    <div id="button"><input type="button" value="+등급 계산하기" onclick="nscal()"></div>
+  </div>
+  
+  <div id="table">
+    <input id="method" type="text" value="평균 등급 = {과목별(단위수*등급)}의 합/총 단위수" readonly/>
+    <input id="result" type="text" value="0.0" readonly/>
+  </div>
 </body>
 </html>
